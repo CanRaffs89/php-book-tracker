@@ -1,4 +1,5 @@
 <?php
+    include('config/db_connect.php');
     
     // Initialise empty variables
     $email = $title = $author = '';
@@ -39,7 +40,21 @@
         if(array_filter($errors)){
             // echo 'Errors in form';
         } else {
-            header('Location: index.php');
+            $email = mysqli_real_escape_string($connect, $_POST['email']);
+            $title = mysqli_real_escape_string($connect, $_POST['title']);
+            $author = mysqli_real_escape_string($connect, $_POST['author']);
+
+            // Add data
+            $sql = "INSERT INTO books(title,author,email) VALUES('$title', '$author', '$email')";
+
+            // Save to database and check
+            if(mysqli_query($connect, $sql)){
+                // Success - redirect home
+                header('Location: index.php');
+            } else {
+                // Error - output
+                echo 'Query error: '. mysqli_error($connect);
+            }
         }
 
     } 
