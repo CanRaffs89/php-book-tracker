@@ -23,6 +23,13 @@
         .red-text {
             color: #8f384d !important; 
         }
+        .book-icon {
+            width: 100px;
+            margin: 40px auto -30px;
+            display: block;
+            position: relative;
+            top: -30px;
+        }
     </style>
 </head>
 <body class="grey lighten-4">

@@ -28,12 +28,13 @@
             <?php foreach($books as $book): ?>
                 <div class="col s6 md3">
                     <div class="card z-depth-0">
+                        <img src="img/book_icon.png" class="book-icon" alt="">
                         <div class="card-content center">
                             <h6> <?php echo htmlspecialchars($book['title']); ?> </h6>
                             <div> <?php echo htmlspecialchars($book['author']); ?> </div>
                         </div>
                         <div class='card-action right-align'>
-                            <a href="" class='brand-text'>More Info</a>
+                            <a href="details.php?id=<?php echo $book['id']?>" class='brand-text'>More Info</a>
                         </div>
                     </div>
                 </div>
